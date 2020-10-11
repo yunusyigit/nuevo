@@ -1,0 +1,28 @@
+CREATE TABLE [dbo].[LogList] (
+    [Id]           INT      IDENTITY (1, 1) NOT NULL,
+    [UrlListId]    INT      NULL,
+    [ResponseCode] INT      NULL,
+    [CreateDate]   DATETIME NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[URLList] (
+    [Id]            INT            IDENTITY (1, 1) NOT NULL,
+    [URL]           NVARCHAR (MAX) NULL,
+    [WebName]       NVARCHAR (250) NULL,
+    [Time]          INT            NULL,
+    [CreateAddById] INT            NULL,
+    [CreateDate]    DATETIME       NULL,
+    [IsActive]      BIT            DEFAULT ((1)) NULL,
+    [LastCheck]     DATETIME       NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+CREATE TABLE [dbo].[Users] (
+    [Id]        INT            IDENTITY (1, 1) NOT NULL,
+    [UserName]  NCHAR (30)     NULL,
+    [Password]  NVARCHAR (MAX) NULL,
+    [IsActive]  BIT            DEFAULT ((1)) NULL,
+    [UserEmail] NVARCHAR (50)  NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
