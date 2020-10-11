@@ -1,0 +1,44 @@
+﻿@model CaseWebApp.Models.EF.Users
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CaseWebApp | Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+                        <form asp-action="Login" method="post" class="form-signin">
+                            <div class="form-label-group">
+                                <input type="text" id="inputUserName" class="form-control" asp-for="UserName" placeholder="User Nmae" required autofocus>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" asp-for="Password" class="form-control" placeholder="Password" required>
+                            </div>
+                            <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase" value="Login">Sign in</button>
+                        </form>
+                        @if (@ViewBag.Mesaj != null)
+                        {
+                            <div class="alert alert-warning"> @ViewBag.Mesaj</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
